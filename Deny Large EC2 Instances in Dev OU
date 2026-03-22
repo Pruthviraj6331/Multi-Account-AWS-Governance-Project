@@ -1,0 +1,21 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DenyLargeEC2Instances",
+      "Effect": "Deny",
+      "Action": "ec2:RunInstances",
+      "Resource": "*",
+      "Condition": {
+        "StringLike": {
+          "ec2:InstanceType": [
+            "m5.4xlarge",
+            "c5.9xlarge",
+            "r5.12xlarge",
+            "*.metal"
+          ]
+        }
+      }
+    }
+  ]
+}
